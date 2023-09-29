@@ -22,9 +22,12 @@
            <%= render 'favorites/favorites', book: @book %>
           </td>
         
-        <td>
-          コメント数<%= @book.book_comments.count %>
+        <td class="book-comments-counter">
+          <%= render "book_comments/counter",book: @book %>
         </td>
+        <td>閲覧数:<%= @book.read_counts.count %></td>
+        <td><%= render "books/static_rate",book: @book %></td>
+        
          <% if user_signed_in? && current_user.id == @book.user_id %>
             <td><%= link_to 'Edit', edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>

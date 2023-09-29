@@ -6,6 +6,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book_new = Book.new
     @book_comment = BookComment.new
+    #閲覧数のための表記
+     #unless ReadCount.find_by(user_id: current_user.id, book_id: @book.id) #1人一回の場合
+     current_user.read_counts.create(book_id: @book.id)
+    
   end
 
   def index
@@ -46,7 +50,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title,:body)
+    params.require(:book).permit(:title,:body,:star)
   end
   
   def ensure_correct_user

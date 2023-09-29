@@ -35,6 +35,8 @@
               <td>
                 コメント数<%= book.book_comments.count %>
               </td>
+              <td>閲覧数:<%= book.read_counts.count %></td>
+              <td><%= render "static_rate",book: book %></td>
             </tr>
           <% end %>
         </tbody>

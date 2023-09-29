@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :rooms, through: :user_rooms
   has_many :user_rooms
   
+  has_many :read_counts,dependent: :destroy
+  
   
   has_one_attached :profile_image
 
