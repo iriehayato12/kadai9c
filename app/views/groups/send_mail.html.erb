@@ -1,0 +1,14 @@
+<div class="container d-flex flex-column align-items-center tex-left">
+ <div>
+     <h3 class="mb-3">送信が完了しました</h3>
+     <p class="mb-1">内容は以下の通りです。</p>
+ </div>
+ 
+ <div>
+     [タイトル] <p><%= @mail_title %></p>
+ </div>
+ 
+ <div>
+     [本文] <p><%= safe_join(@mail_content.split("/n"),tag(:br)) %></p>
+ </div>
+</div>
